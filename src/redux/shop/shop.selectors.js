@@ -17,5 +17,5 @@ export const selectCollections = createSelector(
 
 export const selectCollection = collectionParam => createSelector(
   [selectCollections],
-  collections => collections.find(collection => collection.id === COLLECTION_MAP[collectionParam])
+  collections => collections[collectionParam]
 );
