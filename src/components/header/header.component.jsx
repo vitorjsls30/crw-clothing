@@ -11,8 +11,6 @@ import { auth } from '../../firebase/firebase.utils';
 
 import { ReactComponent as Logo} from '../../assets/crown.svg';
 
-import './header.styles.scss';
-
 import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './header.styles';
 
 const Header = ({ currentUser, hidden }) => (
