@@ -13,7 +13,7 @@ export const selectCollectionsForPreview = createSelector(
     collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 
-export const selectCollection = collectionParam => createSelector(
-  [selectCollections],
-  collections => (collections ? collections[collectionParam] : null)
-);
+export const selectCollection = collectionParam => 
+  createSelector([selectCollections], (collections) => 
+      collections ? collections[collectionParam] : null
+  );
