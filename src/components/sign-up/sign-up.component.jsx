@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import { emailSignUpStart } from '../../redux/user/user.actions';
+import { signUpStart } from '../../redux/user/user.actions';
 
 import './sign-up.styles.scss';
 
@@ -24,7 +24,7 @@ class SignUp extends React.Component {
     event.preventDefault();
 
     const { displayName, email, password, confirmPassword } = this.state;
-    const { emailSignUpStart} = this.props;
+    const { signUpStart} = this.props;
 
     if(password !== confirmPassword) {
       alert('passwords don\'t match!');
@@ -32,15 +32,7 @@ class SignUp extends React.Component {
     }
 
     try {
-      emailSignUpStart(displayName, email, password);
-
-      this.setState({
-        displayName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      });
-
+      signUpStart(displayName, email, password);
     } catch (err) {
       console.error(err);
     }
@@ -104,7 +96,7 @@ class SignUp extends React.Component {
 }
 
 const mapStateToProps = dispatch => ({
-  emailSignUpStart: (displayName, email, password) => dispatch(emailSignUpStart({ displayName, email, password }))
+  signUpStart: (displayName, email, password) => dispatch(signUpStart({ displayName, email, password }))
 });
 
 export default connect(null, mapStateToProps)(SignUp);
