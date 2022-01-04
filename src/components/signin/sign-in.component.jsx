@@ -19,14 +19,12 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
     event.preventDefault();
 
     emailSignInStart(email, password);
-
   }
 
   const handleChange = event => {
     const { value, name} = event.target;
 
     setUserCredentials({ ...userCredentials, [name]: value });
-    console.log('userCredentials', userCredentials);
   }
 
   return(
